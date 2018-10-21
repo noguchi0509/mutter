@@ -1,0 +1,2 @@
+class MuttersController < ApplicationController
+end
