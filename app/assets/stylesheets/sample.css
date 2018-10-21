@@ -1,0 +1,97 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  text-align: center;
+}
+
+.main-header {
+  padding: 15% 0;
+  width: 100%;
+  background-size: cover;
+  /*background-image: url("../mutter/assets/images/header.jpg");*/
+  background-attachment: fixed;
+}
+
+/* ここから */
+header {
+    height: 3.5rem;
+    background-color: #333333;
+    font-size: 1rem;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 10px
+}
+
+header ul a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+    display:block; 
+}
+
+header li {
+        float:left; 
+        width: auto
+}
+.right_menu {
+        float:right; 
+        width: auto
+}
+
+header ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/* ここまでがheader部分の実装 */
+
+
+.main-header img {
+/* main画像（白い「Achieve」の文字の画像）部分の実装 */
+  width: 20%;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.about {
+/* About Achieve部分の実装 */
+}
+.space_grey {
+    height: 3rem;
+    background-color: #F4F5F7;
+}
+
+/* ここから */
+.function {
+    padding-top: 10px;
+    background-color: #D3D3D3;
+}
+
+.function-images {
+}
+
+.function-image {
+    display: inline-table;
+    margin:  60px 30px 100px;
+}
+/* ここまでがfunction部分の実装 */
+
+footer {
+/* footer部分の実装 */
+background-color: #2A3B4A;
+margin-top: 0px;
+height: 5rem;
+color: #fff;
+}
+footer p {
+    margin: 0;
+    padding-top: 1rem
+}
