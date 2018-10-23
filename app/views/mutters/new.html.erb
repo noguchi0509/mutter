@@ -1,1 +1,18 @@
 <h1>new mutter</h1>
+<%= notice %>
+<%= form_with(model: @mutter, url:mutters_path, local: true) do |form| %>
+    <% if @mutter.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= @mutter.errors.count %>件のエラーがあります</h2>
+            <ul>
+            <% @mutter.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+ 
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+    <%= form.submit %>
+<% end %>
