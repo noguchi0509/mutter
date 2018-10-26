@@ -1,0 +1,15 @@
+<h1>Mutters</h1>
+<%= notice %>
+<table>
+  <tr>
+    <th>mutter</th>
+  </tr>
+<% @mutters.each do |mutter| %>
+  <tr>
+    <td><%= mutter.content %></td>
+    <td><%= link_to '編集する', edit_mutter_path(mutter.id) %></td>
+    <td><%= link_to '削除する', mutter_path(mutter.id), method: :delete, data: {confirm: '本当に削除していいですか？'} %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'mutter作成画面に戻る', new_mutter_path %>

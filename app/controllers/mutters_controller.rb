@@ -15,6 +15,29 @@ class MuttersController < ApplicationController
     end
   end
   
+  def list
+    @mutters = Content.all
+  end
+  
+  def edit
+    @mutter = Content.find(params[:id])
+  end
+  
+  def update
+    @mutter = Content.find(params[:id])
+    if @mutter.update(mutter_params)
+       redirect_to list_mutters_path, notice:"編集しました！"
+     else
+       render 'edit'
+    end
+  end
+  
+  def destroy
+    @mutter = Content.find(params[:id])
+    @mutter.destroy
+    redirect_to list_mutters_path, notice:"削除しました！"
+  end
+  
   private
   def mutter_params
     params.require(:content).permit(:content)
