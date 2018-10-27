@@ -1,0 +1,7 @@
+<h1>以下の内容で送信する</h1>
+<%= form_with(model: @mutter, url:mutter_path, local: true, method: :patch ) do |form| %>
+     <%= form.hidden_field :content %>
+     
+    <p>つぶやき:<%= @mutter.content %></p>
+    <%= form.submit "登録する" %>
+<% end %>

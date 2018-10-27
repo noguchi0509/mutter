@@ -23,8 +23,14 @@ class MuttersController < ApplicationController
     @mutter = Content.find(params[:id])
   end
   
-  def update
+  def edit_confirm
     @mutter = Content.find(params[:id])
+  end
+  
+  
+  def update
+    @mutter = Content.new(mutter_params)
+    # @mutter = Content.find(params[:id])
     if @mutter.update(mutter_params)
        redirect_to list_mutters_path, notice:"編集しました！"
      else
@@ -37,6 +43,12 @@ class MuttersController < ApplicationController
     @mutter.destroy
     redirect_to list_mutters_path, notice:"削除しました！"
   end
+  
+  def confirm
+    @mutter = Content.new(mutter_params)
+  end
+  
+  
   
   private
   def mutter_params
