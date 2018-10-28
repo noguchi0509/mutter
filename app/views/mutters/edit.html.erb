@@ -1,6 +1,6 @@
 <h1>edit mutter</h1>
 <%= notice %>
-<%= form_with(model: @mutter, url:edit_confirm_mutter_path, local: true) do |form| %>
+<%= form_with(model: @mutter, url:edit_confirm_mutter_path, local: true, method: :patch ) do |form| %>
     <% if @mutter.errors.any? %>
         <div id="error_explanation">
             <h2><%= @mutter.errors.count %>件のエラーがあります</h2>

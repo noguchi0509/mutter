@@ -3,7 +3,11 @@ class MuttersController < ApplicationController
   end
   
   def new
-    @mutter = Content.new
+    if params[:back]
+      @mutter = Content.new(mutter_params)
+    else
+      @mutter = Content.new
+    end
   end
   
   def create
@@ -20,17 +24,23 @@ class MuttersController < ApplicationController
   end
   
   def edit
-    @mutter = Content.find(params[:id])
+    if params[:back]
+      @mutter = Content.new(mutter_params)
+    else
+      @mutter = Content.find(params[:id])
+    end
+  end
+  
+  def confirm
+    @mutter = Content.new(mutter_params)
   end
   
   def edit_confirm
-    @mutter = Content.find(params[:id])
+    @mutter = Content.new(mutter_params)
   end
   
-  
   def update
-    @mutter = Content.new(mutter_params)
-    # @mutter = Content.find(params[:id])
+    @mutter = Content.find(params[:id])
     if @mutter.update(mutter_params)
        redirect_to list_mutters_path, notice:"編集しました！"
      else
@@ -44,9 +54,6 @@ class MuttersController < ApplicationController
     redirect_to list_mutters_path, notice:"削除しました！"
   end
   
-  def confirm
-    @mutter = Content.new(mutter_params)
-  end
   
   
   

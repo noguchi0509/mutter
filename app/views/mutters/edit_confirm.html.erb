@@ -5,3 +5,7 @@
     <p>つぶやき:<%= @mutter.content %></p>
     <%= form.submit "登録する" %>
 <% end %>
+<%= form_with(model: @mutter, url: edit_mutter_path, local: true,method: :get) do |form| %>
+ <%= form.hidden_field :content %>
+ <%= form.submit "もどる", name: 'back' %>
+ <% end %>

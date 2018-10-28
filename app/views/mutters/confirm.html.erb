@@ -1,7 +1,12 @@
 <h1>以下の内容で送信する</h1>
-<%= form_with(model: @mutter, url:mutter, local: true,method :put) do |form| %>
+<%= form_with(model: @mutter, url:mutters_path, local: true, method: :post ) do |form| %>
      <%= form.hidden_field :content %>
      
     <p>つぶやき:<%= @mutter.content %></p>
     <%= form.submit "登録する" %>
 <% end %>
+
+<%= form_with(model: @mutter, url: new_mutter_path, local: true,method: 'get') do |form| %>
+ <%= form.hidden_field :content %>
+ <%= form.submit "もどる", name: 'back' %>
+ <% end %>
