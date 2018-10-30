@@ -15,7 +15,7 @@ class MuttersController < ApplicationController
     if @mutter.save
       redirect_to new_mutter_path, notice:"ブログを作成しました！"
     else
-      render 'new'
+      render 'confirm'
     end
   end
   
@@ -33,10 +33,16 @@ class MuttersController < ApplicationController
   
   def confirm
     @mutter = Content.new(mutter_params)
+    if @mutter.valid?
+      render 'confirm'
+    end
   end
   
   def edit_confirm
     @mutter = Content.new(mutter_params)
+     if @mutter.valid?
+      render 'confirm'
+    end
   end
   
   def update
@@ -53,11 +59,9 @@ class MuttersController < ApplicationController
     @mutter.destroy
     redirect_to list_mutters_path, notice:"削除しました！"
   end
-  
-  
-  
-  
+
   private
+  
   def mutter_params
     params.require(:content).permit(:content)
   end

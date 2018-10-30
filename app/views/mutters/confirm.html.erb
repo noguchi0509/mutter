@@ -1,5 +1,15 @@
 <h1>以下の内容で送信する</h1>
 <%= form_with(model: @mutter, url:mutters_path, local: true, method: :post ) do |form| %>
+    <% if @mutter.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= @mutter.errors.count %>件のエラーがあります</h2>
+            <ul>
+            <% @mutter.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
      <%= form.hidden_field :content %>
      
     <p>つぶやき:<%= @mutter.content %></p>
